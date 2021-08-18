@@ -1,0 +1,27 @@
+{
+  "name": "annonycomments",
+  "version": "0.5.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "local": "nodemon --exec babel-node src/server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"src/**/*.js\""
+  },
+  "author": "Shlomo Mounitz",
+  "license": "",
+  "dependencies": {
+    "bluebird": "3.7.2",
+    "dotenv": "10.0.0",
+    "pg": "8.7.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.15.0",
+    "@babel/node": "7.14.9",
+    "@babel/preset-env": "7.15.0",
+    "babel-loader": "8.2.2",
+    "babel-plugin-module-resolver": "4.1.0",
+    "nodemon": "2.0.6",
+    "prettier": "2.3.2"
+  }
+}

@@ -1,0 +1,32 @@
+version: '3.5'
+
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/initdb:/docker-entrypoint-initdb.d
+    ports:
+        - 5432:5432
+    environment:
+      - POSTGRES_DB=annonycomments
+      - POSTGRES_USER=api_user
+      - POSTGRES_PASSWORD=api_password
+  annonycomments:
+    container_name: annonycomments
+    build:
+      context: .
+
+    ports:
+      - 8080:8080
+
+    volumes:
+      - .:/application
+      # We don't have a node_modules in our local dir. 
+      # If you accidentally run npm install on your local and get a local node_module dir,
+      # this line prevents the line above from clobbering the /application/node_modules directory 
+      # that was created when we build the docker image 
+      - /application/node_modules
+    environment: 
+      - SERVER=https://local.annonycomments.com:8080
+      - POSTGRES_URI=postgres://api_user:api_password@postgres:5432/annonycomments
