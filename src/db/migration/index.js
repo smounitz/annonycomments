@@ -17,5 +17,4 @@ export const recordMigrationFiles = async (filename) => {
       `INSERT INTO migrations (file_name) VALUES ('${filename}')`
     )
   })
-  console.log('20-', res)
 }
