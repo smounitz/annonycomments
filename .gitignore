@@ -1,6 +1,5 @@
 node_modules
 package-lock.json
 postgres/data/*
-!postgres/data/.gitkeep 
 dist/*
 settings.json
